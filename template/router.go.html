@@ -1,0 +1,31 @@
+/**
+* @Author: ${.Author}
+* @Email: ${.Email}
+* @Description:
+* @File:  router
+* @Version: 1.0.0
+* @Date: ${.DateTime}
+*/
+package config
+
+import (
+    "github.com/gogf/gf/frame/g"
+    "github.com/gogf/gf/net/ghttp"
+    "${.project}/module/${.module}/controller"
+)
+
+func InitRouter()  {
+    urlPath := g.Config().GetString("url-path")
+    s := g.Server()
+    s.Group(urlPath+"/${.module}", func(g *ghttp.RouterGroup) {
+       ${- range $index,$table:=.tables}
+        ${ScamelCase $table}Controller := new(controller.${CamelCase $table}Controller)
+        g.ALL("/${SubTable $table}", ${ScamelCase $table}Controller)
+        g.POST("/${SubTable $table}/page", ${ScamelCase $table}Controller.Page)
+        g.GET("/${SubTable $table}/get/{id}", ${ScamelCase $table}Controller.Get)
+        g.POST("/${SubTable $table}/save", ${ScamelCase $table}Controller.Save)
+        g.POST("/${SubTable $table}/update", ${ScamelCase $table}Controller.Update)
+        g.POST("/${CameTable $table}/delete", ${ScamelCase $table}Controller.Delete)
+       ${end}
+    })
+}

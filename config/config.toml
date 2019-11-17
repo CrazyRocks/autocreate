@@ -1,0 +1,32 @@
+url-path = ""
+http-port="8081"
+author="Rocks"
+email="451360994@qq.com"
+# 应用系统设置
+[setting]
+    logpath = "/tmp/log/novelcenter"
+    assest=""
+    cdn=""
+    domain=""
+
+cache-mode = 1
+
+debug=true
+
+# 数据库连接
+[database]
+   [[database.default]]
+        host     = "localhost"
+        port     = "3306"
+        user     = "root"
+        pass     = "Ytsnjzhq620"
+        name     = "novel_center"
+        type     = "mysql"
+        role     = "master"
+        charset  = "utf8"
+        priority = "1"
+          debug  = true
+
+[redis]
+    disk  = "127.0.0.1:6379,0"
+    cache = "127.0.0.1:6379,1"
