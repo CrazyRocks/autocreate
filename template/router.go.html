@@ -25,7 +25,7 @@ func InitRouter()  {
         g.GET("/${SubTable $table}/get/{id}", ${ScamelCase $table}Controller.Get)
         g.POST("/${SubTable $table}/save", ${ScamelCase $table}Controller.Save)
         g.POST("/${SubTable $table}/update", ${ScamelCase $table}Controller.Update)
-        g.POST("/${CameTable $table}/delete", ${ScamelCase $table}Controller.Delete)
+        g.POST("/${SubTable $table}/delete", ${ScamelCase $table}Controller.Delete)
        ${end}
     })
 }

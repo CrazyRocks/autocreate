@@ -39,8 +39,8 @@ func Gen(r *ghttp.Request) {
 }
 
 func List(r *ghttp.Request) {
-	tableName := r.GetString("tableName");
-	var tables [] model.Table
+	tableName := r.GetString("tableName")
+	var tables []model.Table
 	if tableName != "" {
 		g.DB("default").Table("information_schema.tables").Fields("table_name,engine,table_comment,create_time").Where("table_schema = (select database()) ").And("table_name like ?", "%"+tableName+"%").OrderBy("create_time desc").Structs(&tables)
 	} else {
@@ -66,9 +66,9 @@ func Code(r *ghttp.Request) {
 	project := r.GetString("project")
 	moduleName := r.GetString("moduleName")
 	if tables == "" || module == "" || moduleName == "" {
-		return;
+		return
 	}
-	tableNames := strings.Split(tables, ",");
+	tableNames := strings.Split(tables, ",")
 	GenRouter(tableNames, module, project)
 	GenModule(module, project)
 	for _, table := range tableNames {
@@ -85,10 +85,10 @@ func Code(r *ghttp.Request) {
 	}
 }
 func CamelCase(name string) string {
-	return gstr.CamelCase(name);
+	return gstr.CamelCase(name)
 }
 func ScamelCase(name string) string {
-	return gstr.CamelLowerCase(name);
+	return gstr.CamelLowerCase(name)
 }
 func CameTable(name string) string {
 	return strings.ToLower(gstr.Replace(name, "_", "/"))
@@ -102,7 +102,7 @@ func SubTable(name string) string {
 }
 
 func GenModule(module string, project string) {
-	v := g.View();
+	v := g.View()
 	c := g.Config()
 	folderPath := "result/" + module
 	moduleContent, _ := v.Parse("module.go.html", map[string]interface{}{
@@ -118,7 +118,7 @@ func GenModule(module string, project string) {
 	}
 }
 func GenRouter(tables []string, module string, project string) {
-	v := g.View();
+	v := g.View()
 	v.BindFunc("CamelCase", CamelCase)
 	v.BindFunc("ScamelCase", ScamelCase)
 	v.BindFunc("CameTable", CameTable)
@@ -148,7 +148,7 @@ func GenCode(project string, table string, module string, moduleName string) {
 }
 
 func GenMenu(table string, module string, moduleName string, pathName string) {
-	v := g.View();
+	v := g.View()
 	menuContent, err := v.Parse("menu.sql.html", map[string]interface{}{
 		"pathName":   pathName,
 		"module":     module,
@@ -171,14 +171,14 @@ func GenHtml(table string, module string, moduleName string) {
 	var tableModel model.Table
 	err := g.DB("default").Table("information_schema.tables").Fields("table_name TableName, engine, table_comment TableComment, create_time CreateTime").Where("table_schema = (select database())").And("table_name =?", table).Struct(&tableModel)
 	if err != nil {
-		mlog.Fatalf("查询错误%s", err.Error());
+		mlog.Fatalf("查询错误%s", err.Error())
 	}
 	var columns []model.Column
 	err = g.DB("default").Table("information_schema.columns").Fields("column_name ColumnName, data_type DataType, column_comment Comments, column_key ColumnKey, extra Extra").Where("table_schema = (select database())").And("table_name =?", table).OrderBy("ordinal_position").Structs(&columns)
 	if err != nil {
-		mlog.Fatalf("查询错误%s", err.Error());
+		mlog.Fatalf("查询错误%s", err.Error())
 	}
-	v := g.View();
+	v := g.View()
 	c := g.Config()
 
 	var PK model.Column
@@ -200,7 +200,7 @@ func GenHtml(table string, module string, moduleName string) {
 		"classname":  strings.ToLower(gstr.CamelLowerCase(table)),
 		"pathName":   tablePath,
 		"pk":         PK,
-		"title":      tableModel.TableComment + "配置",
+		"title":      tableModel.TableComment,
 		"columns":    columns,
 		"nowTime":    gtime.Now().Unix(),
 		"DateTime":   gtime.Date(),
@@ -209,7 +209,7 @@ func GenHtml(table string, module string, moduleName string) {
 	})
 
 	if err != nil {
-		mlog.Fatalf("解析错误%s", err.Error());
+		mlog.Fatalf("解析错误%s", err.Error())
 	}
 
 	path := folderPath + gfile.Separator + tablePath + ".html"
@@ -234,7 +234,7 @@ func GenHtml(table string, module string, moduleName string) {
 		"Email":      c.GetString("email"),
 	})
 	if err != nil {
-		mlog.Fatalf("解析错误%s", err.Error());
+		mlog.Fatalf("解析错误%s", err.Error())
 	}
 	jsPath := "result/js"
 	editPath := jsPath + gfile.Separator + tablePath + ".js"
@@ -248,14 +248,14 @@ func GenVue(table string, module string) {
 	var tableModel model.Table
 	err := g.DB("default").Table("information_schema.tables").Fields("table_name TableName, engine, table_comment TableComment, create_time CreateTime").Where("table_schema = (select database())").And("table_name =?", table).Struct(&tableModel)
 	if err != nil {
-		mlog.Fatalf("查询错误%s", err.Error());
+		mlog.Fatalf("查询错误%s", err.Error())
 	}
 	var columns []model.Column
 	err = g.DB("default").Table("information_schema.columns").Fields("column_name ColumnName, data_type DataType, column_comment Comments, column_key ColumnKey, extra Extra").Where("table_schema = (select database())").And("table_name =?", table).OrderBy("ordinal_position").Structs(&columns)
 	if err != nil {
-		mlog.Fatalf("查询错误%s", err.Error());
+		mlog.Fatalf("查询错误%s", err.Error())
 	}
-	v := g.View();
+	v := g.View()
 	c := g.Config()
 
 	var PK model.Column
@@ -283,7 +283,7 @@ func GenVue(table string, module string) {
 	})
 
 	if err != nil {
-		mlog.Fatalf("解析错误%s", err.Error());
+		mlog.Fatalf("解析错误%s", err.Error())
 	}
 	path := folderPath + gfile.Separator + strings.ToLower(gstr.CamelLowerCase(table)) + ".vue"
 	if err := gfile.PutContents(path, strings.TrimSpace(indexContent)); err != nil {
@@ -306,7 +306,7 @@ func GenVue(table string, module string) {
 		"Email":      c.GetString("email"),
 	})
 	if err != nil {
-		mlog.Fatalf("解析错误%s", err.Error());
+		mlog.Fatalf("解析错误%s", err.Error())
 	}
 	editPath := folderPath + gfile.Separator + strings.ToLower(gstr.CamelLowerCase(table)) + "-add-or-update.vue"
 	if err := gfile.PutContents(editPath, strings.TrimSpace(editContent)); err != nil {
@@ -323,7 +323,7 @@ func GenGo(project string, table string, module string, moduleName string) {
 }
 func generateControllerContentFile(project string, db gdb.DB, table string, folderPath, packageName, module, groupName string) {
 	camelName := gstr.CamelCase(table)
-	v := g.View();
+	v := g.View()
 	v.BindFunc("CameTable", CameTable)
 	c := g.Config()
 	tablePath := strings.ToLower(gstr.Replace(table, "_", "/"))
@@ -375,7 +375,7 @@ import (
 )
 `
 	}
-	v := g.View();
+	v := g.View()
 	c := g.Config()
 
 	modelContent, err := v.Parse("model.go.html", map[string]interface{}{
@@ -427,11 +427,11 @@ func generateStructDefinition(table string, fields map[string]*gdb.TableField) s
 func generateStructField(field *gdb.TableField) []string {
 	var typeName, ormTag, jsonTag string
 	t, _ := gregex.ReplaceString(`\(.+\)`, "", field.Type)
-	arr:=gstr.Split(t," ");
+	arr := gstr.Split(t, " ")
 	t = strings.ToLower(arr[0])
 	t = strings.ToLower(t)
-	fmt.Printf("当前Type:%s",field.Type)
-	fmt.Printf("当前字段:%s:%s\n",field.Name,t)
+	fmt.Printf("当前Type:%s", field.Type)
+	fmt.Printf("当前字段:%s:%s\n", field.Name, t)
 	switch t {
 	case "binary", "varbinary", "blob", "tinyblob", "mediumblob", "longblob":
 		typeName = "[]byte"

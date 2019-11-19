@@ -34,8 +34,8 @@ func (controller *${.TplModelName}Controller) Index(r *ghttp.Request) {
 
 //获取${.TplModelName}单条信息
 func (controller *${.TplModelName}Controller) Get(r *ghttp.Request) {
-    id := r.GetString("id")
-    model := model.${.TplModelName}{Id: gconv.Int64(id)}.Get()
+    id := r.GetInt("id")
+    model := model.${.TplModelName}{Id: id}.Get()
     if model.Id <= 0 {
        base.Fail(r, controllerName${.TplModelName}+" get fail")
     }
@@ -44,9 +44,9 @@ func (controller *${.TplModelName}Controller) Get(r *ghttp.Request) {
 
 //根据id或者ids删除{.TplModelName}
 func (controller *${.TplModelName}Controller) Delete(r *ghttp.Request) {
-   ids := r.GetStrings("ids")
+   ids := r.GetInts("ids")
     for _, id := range ids {
-        model := model.${.TplModelName}{Id: gconv.Int64(id)}
+        model := model.${.TplModelName}{Id: id}
         model.Delete()
     }
     base.Succ(r, "")
@@ -102,5 +102,5 @@ func (controller *${.TplModelName}Controller) Page(r *ghttp.Request) {
    form := base.NewForm(r.GetQueryMap())
    model := model.${.TplModelName}{}
    page := model.Page(&form)
-   base.Succ(r, g.Map{"page": page, "form": form})
+   base.Succ(r, g.Map{"list": page, "form": form})
 }

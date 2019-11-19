@@ -49,7 +49,6 @@ ${print "${include "} "layout/nav.html" .}
                         </div>
                         <div v-show="!showList" class="card">
                             <div class="card-header"><h4>{{title}}${.comments}</h4></div>
-                            <form>
                                 <div class="card-body">
                                     ${- range $index,$column := .columns}
                                     ${- if( ne $column.ColumnName $.pk.ColumnName)}
@@ -74,7 +73,6 @@ ${print "${include "} "layout/nav.html" .}
                                     &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload"
                                                        value="返回"/>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>

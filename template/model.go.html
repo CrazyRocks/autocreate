@@ -9,11 +9,11 @@
 package model
 
 import (
+    "github.com/gogf/gf/util/gconv"
     "${.TplProject}/utils/base"
     "github.com/gogf/gf/database/gdb"
     "github.com/gogf/gf/frame/g"
     "github.com/gogf/gf/os/glog"
-    "${.TplProject}/utils/tools"
 )
 ${.TplExtraImports}
 ${.TplStructDefine}
@@ -22,7 +22,7 @@ ${.TplStructDefine}
 func (model *${.TplModelName}) Insert() int64 {
     model.CreateTime = gtime.Now()
     model.UpdateTime = gtime.Now()
-    model.Id = tools.GetId(1)
+    model.Status=1
     r, err := model.dbModel().Data(model).Insert()
     if err != nil {
         glog.Error(model.TableName()+" insert error", err)
@@ -39,7 +39,7 @@ func (model *${.TplModelName}) Insert() int64 {
             glog.Error(model.TableName()+" LastInsertId res error", err2)
             return 0
         } else {
-           model.Id = lastId
+           model.Id = gconv.Int(lastId)
         }
     }
     return res
@@ -86,7 +86,7 @@ func (model ${.TplModelName}) Get() ${.TplModelName} {
         return ${.TplModelName}{}
     }
     var resData ${.TplModelName}
-    err := model.dbModel("t").Where(" id = ?", model.Id).Fields(model.columns()).Struct(&resData)
+    err := model.dbModel("t").Where(" id = ? and status=1", model.Id).Fields(model.columns()).Struct(&resData)
     if err != nil {
         glog.Error(model.TableName()+" get one error", err)
         return ${.TplModelName}{}
@@ -100,7 +100,7 @@ func (model ${.TplModelName}) Page(form *base.BaseForm) []${.TplModelName} {
         glog.Error(model.TableName()+" page param error", form.Page, form.Rows)
         return []${.TplModelName}{}
     }
-    where := " 1 = 1 "
+    where := " status = 1 "
     var params []interface{}
     if form.Params != nil && form.Params["name"] != "" {
         where += " and name like ? "
@@ -139,7 +139,7 @@ func (model ${.TplModelName}) dbModel(alias ...string) *gdb.Model {
     return tableModel
 }
 //返回主键${.TplModelName}
-func (model ${.TplModelName}) PkVal() int64 {
+func (model ${.TplModelName}) PkVal() int {
     return model.Id
 }
 //表名${.TplModelName}
