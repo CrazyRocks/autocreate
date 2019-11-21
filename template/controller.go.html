@@ -42,7 +42,7 @@ func (controller *${.TplModelName}Controller) Get(r *ghttp.Request) {
     base.Succ(r, model)
 }
 
-//根据id或者ids删除{.TplModelName}
+//根据id或者ids删除${.TplModelName}
 func (controller *${.TplModelName}Controller) Delete(r *ghttp.Request) {
    ids := r.GetInts("ids")
     for _, id := range ids {
@@ -53,7 +53,7 @@ func (controller *${.TplModelName}Controller) Delete(r *ghttp.Request) {
 }
 
 
-//创建一条{.TplModelName}
+//创建一条${.TplModelName}
 func (controller *${.TplModelName}Controller) Save(r *ghttp.Request) {
     model := model.${.TplModelName}{}
     err := gconv.Struct(r.GetPostMap(), &model)
@@ -75,7 +75,7 @@ func (controller *${.TplModelName}Controller) Save(r *ghttp.Request) {
     base.Succ(r, "")
 }
 
-//更新一条{.TplModelName}
+//更新一条${.TplModelName}
 func (controller *${.TplModelName}Controller) Update(r *ghttp.Request) {
     model := model.${.TplModelName}{}
     err := gconv.Struct(r.GetPostMap(), &model)
@@ -97,7 +97,7 @@ func (controller *${.TplModelName}Controller) Update(r *ghttp.Request) {
     base.Succ(r, "")
 }
 
-//分页列表{.TplModelName}
+//分页列表${.TplModelName}
 func (controller *${.TplModelName}Controller) Page(r *ghttp.Request) {
    form := base.NewForm(r.GetQueryMap())
    model := model.${.TplModelName}{}
