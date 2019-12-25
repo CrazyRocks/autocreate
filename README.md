@@ -34,5 +34,4 @@ goframe: latest<br/>
 2:elementui Vue(已经全自动生成了Vue)<br/>
 
 感谢大家支持，有钱的撒几毛，没钱的点个赞，有问题的提issue<br/>
-![weixin](https://github.com/CrazyRocks/autocreate/blob/master/intro/weixin.jpeg)
-![alipay](https://github.com/CrazyRocks/autocreate/blob/master/intro/alipay.jpeg)
+![weixin](https://github.com/CrazyRocks/autocreate/blob/master/intro/donate.jpg)
