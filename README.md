@@ -3,8 +3,8 @@
 #### 介绍
 Golang 全自动生成业务框架，原来需要1天的事情，现在只需要1分钟<br/>
 使用框架: gf<br/>
-使用后台框架:<br/>
-
+使用后台框架:https://github.com/CrazyRocks/goadmin<br/>
+![first](https://github.com/CrazyRocks/autocreate/blob/master/intro/5.jpg)<br/>
 1: 生成了model<br/>
 2: 生成了controller<br/>
 3: 生成了router<br/>
