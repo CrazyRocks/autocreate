@@ -17,9 +17,9 @@ Golang 全自动生成业务框架，原来需要1天的事情，现在只需要
 1: 第一步修改数据库连接<br/>
 ![first](https://github.com/CrazyRocks/autocreate/blob/master/intro/1.jpg)<br/>
 2: 第二步创建的表和数据必须有注释(自动生成表单)<br/>
-![second](https://github.com/CrazyRocks/autocreate/blob/master/intro/2.png)<br/>
+![second](https://github.com/CrazyRocks/autocreate/blob/master/intro/2.jpg)<br/>
 3: 第三步运行 go run main.go 打开:localhost:8081<br/>
-![third](https://github.com/CrazyRocks/autocreate/blob/master/intro/3.png)<br/>
+![third](https://github.com/CrazyRocks/autocreate/blob/master/intro/3.jpg)<br/>
 4: 第四步选择表，填写项目名称，填写模块名,填写菜单名（权限菜单)<br/>
 ![fourth](https://github.com/CrazyRocks/autocreate/blob/master/intro/4.jpg)<br/>
 5: 第五步执行后看项目的result文件夹，直接拷贝到项目组使用<br/>
@@ -34,5 +34,5 @@ goframe: latest<br/>
 2:elementui Vue(已经全自动生成了Vue)<br/>
 
 感谢大家支持，有钱的撒几毛，没钱的点个赞，有问题的提issue<br/>
-![weixin](https://github.com/CrazyRocks/autocreate/blob/master/intro/weixin.jpg)
-![alipay](https://github.com/CrazyRocks/autocreate/blob/master/intro/alipay.jpg)
+![weixin](https://github.com/CrazyRocks/autocreate/blob/master/intro/weixin.jpeg)
+![alipay](https://github.com/CrazyRocks/autocreate/blob/master/intro/alipay.jpeg)
