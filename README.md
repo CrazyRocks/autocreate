@@ -15,15 +15,14 @@ Golang 全自动生成业务框架，原来需要1天的事情，现在只需要
 
 使用方式：
 1: 第一步修改数据库连接<br/>
-![first](https://github.com/CrazyRocks/autocreate/blob/master/intro/1.jpg)
+![first](https://github.com/CrazyRocks/autocreate/blob/master/intro/1.jpg)<br/>
 2: 第二步创建的表和数据必须有注释(自动生成表单)<br/>
-![second](https://github.com/CrazyRocks/autocreate/blob/master/intro/2.jpg)
+![second](https://github.com/CrazyRocks/autocreate/blob/master/intro/2.png)<br/>
 3: 第三步运行 go run main.go 打开:localhost:8081<br/>
-![third](https://github.com/CrazyRocks/autocreate/blob/master/intro/3.jpg)
+![third](https://github.com/CrazyRocks/autocreate/blob/master/intro/3.png)<br/>
 4: 第四步选择表，填写项目名称，填写模块名,填写菜单名（权限菜单)<br/>
-![fourth](https://github.com/CrazyRocks/autocreate/blob/master/intro/3.jpg)
+![fourth](https://github.com/CrazyRocks/autocreate/blob/master/intro/4.jpg)<br/>
 5: 第五步执行后看项目的result文件夹，直接拷贝到项目组使用<br/>
-![fifth](https://github.com/CrazyRocks/autocreate/blob/master/intro/3.jpg)
 
 #### 软件架构
 数据库: mysql<br/>
@@ -36,4 +35,4 @@ goframe: latest<br/>
 
 感谢大家支持，有钱的撒几毛，没钱的点个赞，有问题的提issue<br/>
 ![weixin](https://github.com/CrazyRocks/autocreate/blob/master/intro/weixin.jpg)
-![alipay](https://github.com/CrazyRocks/autocreate/blob/master/intro/weixin.jpg)
+![alipay](https://github.com/CrazyRocks/autocreate/blob/master/intro/alipay.jpg)
