@@ -4,7 +4,7 @@
 Golang 全自动生成业务框架，原来需要1天的事情，现在只需要1分钟<br/>
 使用框架: gf<br/>
 使用后台框架:https://github.com/CrazyRocks/goadmin<br/>
-![first](https://github.com/CrazyRocks/autocreate/blob/master/intro/5.jpg)<br/>
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1225/172404_d65f9acb_1927330.jpeg "5.jpg")<br/>
 1: 生成了model<br/>
 2: 生成了controller<br/>
 3: 生成了router<br/>
@@ -15,13 +15,13 @@ Golang 全自动生成业务框架，原来需要1天的事情，现在只需要
 
 使用方式：
 1: 第一步修改数据库连接<br/>
-![first](https://github.com/CrazyRocks/autocreate/blob/master/intro/1.jpg)<br/>
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1225/172423_aaba0c76_1927330.jpeg "1.jpg")<br/>
 2: 第二步创建的表和数据必须有注释(自动生成表单)<br/>
-![second](https://github.com/CrazyRocks/autocreate/blob/master/intro/2.jpg)<br/>
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1225/172435_f93a843d_1927330.jpeg "2.jpg")<br/>
 3: 第三步运行 go run main.go 打开:localhost:8081<br/>
-![third](https://github.com/CrazyRocks/autocreate/blob/master/intro/3.jpg)<br/>
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1225/172449_82d6c961_1927330.jpeg "3.jpg")<br/>
 4: 第四步选择表，填写项目名称，填写模块名,填写菜单名（权限菜单)<br/>
-![fourth](https://github.com/CrazyRocks/autocreate/blob/master/intro/4.jpg)<br/>
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1225/172458_e2a12dea_1927330.jpeg "4.jpg")<br/>
 5: 第五步执行后看项目的result文件夹，直接拷贝到项目组使用<br/>
 
 #### 软件架构
@@ -34,4 +34,4 @@ goframe: latest<br/>
 2:elementui Vue(已经全自动生成了Vue)<br/>
 
 感谢大家支持，有钱的撒几毛，没钱的点个赞，有问题的提issue<br/>
-![weixin](https://github.com/CrazyRocks/autocreate/blob/master/intro/donate.jpg)
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1225/172511_13869dda_1927330.jpeg "donate.jpg")
