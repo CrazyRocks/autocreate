@@ -20,9 +20,9 @@ ${.TplStructDefine}
 
 //创建m${.TplModelName}
 func (model *${.TplModelName}) Insert() int64 {
-    model.CreateTime = gtime.Now()
-    model.UpdateTime = gtime.Now()
-    model.Status=1
+    //model.CreateTime = gtime.Now()
+    //model.UpdateTime = gtime.Now()
+    //model.Status=1
     r, err := model.dbModel().Data(model).Insert()
     if err != nil {
         glog.Error(model.TableName()+" insert error", err)
@@ -65,7 +65,7 @@ func (model ${.TplModelName}) Delete() int64 {
 
 //更新${.TplModelName}
 func (model *${.TplModelName}) Update() int64 {
-    model.UpdateTime = gtime.Now();
+    //model.UpdateTime = gtime.Now();
     r, err := model.dbModel().Data(model).Where(" id = ?", model.Id).Update()
     if err != nil {
         glog.Error(model.TableName()+" update error", err)
