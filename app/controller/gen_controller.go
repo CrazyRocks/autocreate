@@ -492,6 +492,6 @@ func generateStructField(field *gdb.TableField) []string {
 		"    #" + gstr.CamelCase(field.Name),
 		" #" + typeName,
 		" #" + fmt.Sprintf("`"+`orm:"%s"`, ormTag),
-		" #" + fmt.Sprintf(`json:"%s" gconv:"%s,omitempty"`+"`", gstr.CamelCase(field.Name), jsonTag),
+		" #" + fmt.Sprintf(`json:"%s,omitempty" gconv:"%s,omitempty"`+"`", gstr.CamelCase(field.Name), jsonTag),
 	}
 }
