@@ -46,8 +46,15 @@ goframe: latest<br/>
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0109/151918_f6733481_620187.jpeg "qrcode_for_gh_221095e67f12_1280.jpg")<br/>
 
-感谢大家支持，有钱的撒几毛，没钱的点个赞，有问题的提issue<br/>
-![输入图片说明](https://images.gitee.com/uploads/images/2019/1225/172511_13869dda_1927330.jpeg "donate.jpg")
+关于百度：<br/>
+1：如何做到1个月百度流量破万<br/>
+2：如何做到1个月小程序日活20万<br/>
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0109/155739_ee8bdd72_1927330.png "1.png")<br/>
+关于Google,直接上图<br/>
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0109/155759_10726b97_1927330.png "3.png")<br/>
+<br/>
+
 
 感谢大佬<br/>
 | Name | Channel | Amount | Comment <br/>
