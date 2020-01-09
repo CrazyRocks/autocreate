@@ -97,7 +97,6 @@ func CameTable(name string) string {
 func SubTable(name string) string {
 	tables := gstr.Split(name, "_")
 	println(tables)
-	println("heheh")
 	return tables[1]
 }
 
